@@ -44,8 +44,10 @@ public class NGramBuilder {
                     StringBuilder sb=new StringBuilder();
                     for(int time=0;time<count;time++){
                          sb.append(group[i+time]);
+                         sb.append(" ");
                     }
-                    context.write(new Text(sb.toString()),new IntWritable(1));
+                    String temp=sb.toString().trim();
+                    context.write(new Text(temp),new IntWritable(1));
                 }
                 count++;
             }
